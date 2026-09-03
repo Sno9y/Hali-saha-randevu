@@ -155,6 +155,9 @@
       padding: 20px 0;
     }
   </style>
+  <!-- Firebase SDK Kütüphaneleri -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
 </head>
 <body>
 
@@ -177,6 +180,11 @@
           <div class="form-group">
             <label for="registrationNo">Sicil No</label>
             <input type="text" id="registrationNo" placeholder="Örn: 12345" required>
+          </div>
+
+          <div class="form-group">
+            <label for="cancelPin">İptal Şifresi (4 Haneli PIN)</label>
+            <input type="password" id="cancelPin" maxlength="4" placeholder="Örn: 1234" pattern="\d{4}" title="Lütfen 4 haneli sayısal bir şifre girin" required>
           </div>
 
           <div class="form-group">
@@ -204,7 +212,7 @@
       <div class="card">
         <h2>Aktif Rezervasyonlar</h2>
         <ul id="appointmentList" class="appointment-list">
-          <!-- Dinamik randevular buraya eklenecek -->
+          <li class="empty-state">Randevular yükleniyor...</li>
         </ul>
       </div>
     </div>
