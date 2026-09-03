@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
       li.className = 'appointment-item';
       li.innerHTML = `
         <div class="appointment-info">
-          <strong>${item.name} (${item.department})</strong>
+          <strong>${item.name} (Sicil No: ${item.registrationNo})</strong>
           📅 ${formatDate(item.date)} | ⏰ ${item.time}
         </div>
         <button class="delete-btn" onclick="deleteAppointment(${index})">İptal</button>
@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
     e.preventDefault();
 
     const name = document.getElementById('name').value.trim();
-    const department = document.getElementById('department').value.trim();
+    const registrationNo = document.getElementById('registrationNo').value.trim();
     const date = document.getElementById('date').value;
     const time = document.getElementById('time').value;
 
@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Yeni randevuyu ekle
-    const newAppointment = { name, department, date, time };
+    const newAppointment = { name, registrationNo, date, time };
     appointments.push(newAppointment);
 
     // LocalStorage'a kaydet
